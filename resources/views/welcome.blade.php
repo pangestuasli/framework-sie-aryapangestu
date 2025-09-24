@@ -117,7 +117,7 @@
                             </a>
 
 <!-- Contoh penggunaan route pada tag href -->
-<a href="{{ route('mahasiswa.show') }}">Klik Disini</a>
+
                         </li>
                     </ul>
                 </div>
