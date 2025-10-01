@@ -84,7 +84,7 @@
         <div class="container">
             <h1> {{ $username }} </h1>
 <p> {{ $last_login }} </p>
-            <p class="lead mb-0">Maling 300 Ribu</p>
+            <p class="lead mb-0">Haiii</p>
         </div>
     </section>
 
