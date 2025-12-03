@@ -40,7 +40,7 @@
 </head>
 
 <body>
-@include('layouts.admin.sidebar')
+    @include('layouts.admin.sidebar')
     <main class="content">
         @include('layouts.admin.header')
 

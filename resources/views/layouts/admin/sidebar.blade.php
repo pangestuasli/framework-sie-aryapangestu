@@ -55,7 +55,7 @@
                             <img src="{{ asset('assets-admin/img/brand/light.svg') }}" height="20" width="20"
                                 alt="Volt Logo">
                         </span>
-                        <span class="mt-1 ms-1 sidebar-text">Volt Overview</span>
+                        <span class="mt-1 ms-1 sidebar-text">{{Auth::login($user);}}</span>
                     </a>
                 </li>
                 <li class="nav-item nav-item {{ request()->routeIs('dashboard.*') ? 'active' : '' }} ">

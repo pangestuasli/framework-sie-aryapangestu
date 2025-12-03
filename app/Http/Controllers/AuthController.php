@@ -1,20 +1,44 @@
 <?php
-
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class AuthController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        if(!Auth::check()){
-            return view('admin.dashboard');
+        return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email'    => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+        if ($user && Hash::check($request->password, $user->password)) {
+            Auth::login($user);
+            return redirect()->route('pelanggan.index')->with('success', 'Login berhasil!');
+        } else {
+            return back()->withErrors(['email' => 'Email atau password salah'])->withInput();
         }
 
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();      // Hapus semua session
+        $request->session()->regenerateToken(); // Cegah CSRF
+
+        // Redirect ke halaman login
     }
 
     /**
