@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 @section('title')
-Pelanggan
+Produk
 @endsection
 @section('content')
 
@@ -17,17 +17,17 @@ Pelanggan
                             </svg>
                         </a>
                     </li>
-                    <li class="breadcrumb-item"><a href="#">Pelanggan</a></li>
+                    <li class="breadcrumb-item"><a href="#">Produk</a></li>
                 </ol>
             </nav>
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Data Pelanggan</h1>
-                    <p class="mb-0">List data seluruh pelanggan</p>
+                    <h1 class="h4">Data Produk</h1>
+                    <p class="mb-0">List data seluruh Produk</p>
                 </div>
                 <div>
-                    <a href="{{ route('pelanggan.create') }}" class="btn btn-success text-white"><i
-                            class="far fa-question-circle me-1"></i> Tambah Pelanggan</a>
+                    <a href="{{ route('produk.create') }}" class="btn btn-success text-white"><i
+                            class="far fa-question-circle me-1"></i> Tambah Produk</a>
                 </div>
             </div>
         </div>
@@ -40,25 +40,21 @@ Pelanggan
                             <table id="table-pelanggan" class="table table-centered table-nowrap mb-0 rounded">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th class="border-0">First Name</th>
-                                        <th class="border-0">Last Name</th>
-                                        <th class="border-0">Birthday</th>
-                                        <th class="border-0">Gender</th>
-                                        <th class="border-0">Email</th>
-                                        <th class="border-0">Phone</th>
+                                        <th class="border-0">Namaa Produk</th>
+                                        <th class="border-0">Harga</th>
+                                        <th class="border-0">Deskripsi Produk</th>
+
                                         <th class="border-0 rounded-end">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($dataPelanggan as $item)
+                                    @foreach ($dataProduk as $item)
                                         <tr>
-                                            <td>{{ $item->first_name }}</td>
-                                            <td>{{ $item->last_name }}</td>
-                                            <td>{{ $item->birthday }}</td>
-                                            <td>{{ $item->gender }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            <td>{{ $item->phone }}</td>
-                                            <td><a href="{{ route('pelanggan.edit', $item->pelanggan_id) }}"
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->price }}</td>
+                                            <td>{{ $item->description }}</td>
+
+                                            <td><a href="{{ route('produk.edit', $item->id) }}"
                                                     class="btn btn-info btn-sm">
                                                     <svg class="icon icon-xs me-2" data-slot="icon" fill="none"
                                                         stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
@@ -69,7 +65,7 @@ Pelanggan
                                                     </svg>
                                                     Edit
                                                 </a>
-                                                <form action="{{ route('pelanggan.destroy', $item->pelanggan_id) }}" method="POST" style="display:inline">
+                                                <form action="{{ route('produk.destroy', $item->id) }}" method="POST" style="display:inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm">

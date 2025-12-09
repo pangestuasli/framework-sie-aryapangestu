@@ -1184,7 +1184,7 @@
 						<li class="list-inline-item px-0 px-sm-2">
 							<a href="https://themesberg.com/about">About</a>
 						</li>
-						<li class="list-inline-item px-0 px-sm-2">
+						<li class="list-inline-item px-0 px-sm-2">s
 							<a href="https://themesberg.com/themes">Themes</a>
 						</li>
 						<li class="list-inline-item px-0 px-sm-2">
