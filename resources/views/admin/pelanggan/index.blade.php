@@ -396,7 +396,7 @@
                                                     </svg>
                                                     Edit
                                                 </a>
-                                                <form action="" method="POST" style="display:inline">
+                                                <form action="{{ route('pelanggan.destroy', $item->pelanggan_id) }}" method="POST" style="display:inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm">
